@@ -1,0 +1,86 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <pthread.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <pthread.h>
+#include <sys/time.h>
+#include"philo.h"
+
+
+void	ft_usleep(long time)
+{
+	long	current_time;
+
+	current_time = ft_time(0);
+	usleep(time / 1000);
+	while (ft_time(current_time) * 1000 < time)
+		usleep(100);
+}
+
+long	ft_time(long start)
+{
+	struct timeval	current_time;
+
+	gettimeofday(&current_time, NULL);
+	return (current_time.tv_sec * 1000 + current_time.tv_usec / 1000 - start);
+}
+
+int	v_init(t_data *data, int ac, char **argv)
+{
+	data->number = ft_atoi(argv[1]);
+	data->time_die = ft_atoi(argv[2]);
+	data->time_eat = ft_atoi(argv[3]);
+	data->time_sleep = ft_atoi(argv[4]);
+	data->is_dead = 0;
+	data->data_race = init_mutex(data->data_race, 3);
+	data->forks = init_mutex(data->forks, data->number);
+	if (!data->data_race || !data->forks)
+		return (0);
+	pthread_mutex_init(&data->display, NULL);
+	if (ac == 6)
+		data->h_much = ft_atoi(argv[5]);
+	else
+		data->h_much = -1;
+	return (1);
+}
+void	philo_init(t_data *data, t_philo *philo)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->number)
+	{
+		philo[i].id = i + 1;
+		philo[i].left = i;
+		philo[i].right = i + 1;
+		philo[i].data = data;
+		philo[i].last_time_eating = 0;
+		philo[i].counter = 0;
+		if (i == data->number - 1)
+			philo[i].right = 0;
+		i++;
+	}
+}
+void	threads(t_philo *philo)
+{
+	int	i;
+
+	i = 0;
+	philo->data->current_time = ft_time(0);
+	while (i < philo[0].data->number)
+	{
+		if (pthread_create(&philo[i].thread, NULL, &room, &philo[i]) != 0)
+			return;
+		i += 2;
+	}
+	usleep(50);
+	i = 1;
+	while (i < philo[0].data->number)
+	{
+		if (pthread_create(&philo[i].thread, NULL, &room, &philo[i]) != 0)
+			return;
+		i += 2;
+	}
+}
