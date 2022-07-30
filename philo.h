@@ -11,8 +11,6 @@ typedef struct s_data
 {
 	int					number;
 	pthread_mutex_t		*forks;
-	pthread_mutex_t		display;
-	pthread_mutex_t		*data_race;
 	long				time_eat;
 	long				time_sleep;
 	long				time_die;
@@ -32,5 +30,6 @@ typedef struct s_philo
 	t_data			*data;
 }	t_philo;
 void	*room(void *arg);
+long	ft_time(long start);
 
 #endif

@@ -1,12 +1,5 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <pthread.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <pthread.h>
-#include <sys/time.h>
-#include"philo.h"
+
+#include"../philo.h"
 
 
 void	ft_usleep(long time)
@@ -34,15 +27,11 @@ int	v_init(t_data *data, int ac, char **argv)
 	data->time_eat = ft_atoi(argv[3]);
 	data->time_sleep = ft_atoi(argv[4]);
 	data->is_dead = 0;
-	data->data_race = init_mutex(data->data_race, 3);
 	data->forks = init_mutex(data->forks, data->number);
-	if (!data->data_race || !data->forks)
+	if (!data->forks)
 		return (0);
-	pthread_mutex_init(&data->display, NULL);
 	if (ac == 6)
 		data->h_much = ft_atoi(argv[5]);
-	else
-		data->h_much = -1;
 	return (1);
 }
 void	philo_init(t_data *data, t_philo *philo)

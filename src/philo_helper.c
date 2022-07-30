@@ -1,4 +1,4 @@
-#include"philo.h"
+#include"../philo.h"
 
 void	*room(void *arg)
 {
@@ -9,12 +9,6 @@ void	*room(void *arg)
 	{
 		eating(philo);
 		sleeping(philo);
-		pthread_mutex_lock(&philo->data->data_race[1]);
-		if (philo->data->is_dead == 0)
-			pthread_mutex_lock(&philo->data->display);
-	printf("%ld | philo %d %s\n thinking ", time, philo->id);
-	pthread_mutex_unlock(&philo->data->display);
-		pthread_mutex_unlock(&philo->data->data_race[1]);
 	}
 	return (NULL);
 }
