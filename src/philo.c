@@ -22,16 +22,17 @@ long	ft_time(long start)
 
 int	v_init(t_data *data, int ac, char **argv)
 {
-	data->number = ft_atoi(argv[1]);
-	data->time_die = ft_atoi(argv[2]);
-	data->time_eat = ft_atoi(argv[3]);
-	data->time_sleep = ft_atoi(argv[4]);
+
+	data->number = atoi(argv[1]);
+	data->time_die = atoi(argv[2]);
+	data->time_eat = atoi(argv[3]);
+	data->time_sleep = atoi(argv[4]);
 	data->is_dead = 0;
-	data->forks = init_mutex(data->forks, data->number);
+	data->forks = init_mutex(data->forks , data->number);
 	if (!data->forks)
 		return (0);
 	if (ac == 6)
-		data->h_much = ft_atoi(argv[5]);
+		data->h_much = atoi(argv[5]);
 	return (1);
 }
 void	philo_init(t_data *data, t_philo *philo)
@@ -64,7 +65,7 @@ void	threads(t_philo *philo)
 			return;
 		i += 2;
 	}
-	usleep(50);
+	usleep(100);
 	i = 1;
 	while (i < philo[0].data->number)
 	{

@@ -1,6 +1,5 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/mnt/c/Users/Amine/OneDrive/Bureau/philo'
+make: Nothing to be done for 'all'.
 make: Leaving directory '/mnt/c/Users/Amine/OneDrive/Bureau/philo'
  
-make: *** No targets.  Stop.
-

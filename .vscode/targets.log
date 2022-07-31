@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2014 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jul 30 13:27:22 2022
+# Make data base, printed on Sun Jul 31 11:05:46 2022
 
 # Variables
 
@@ -18,6 +16,8 @@ make: *** No rule to make target 'all'.  Stop.
 ?F = $(notdir $?)
 # environment
 WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
+# makefile (from 'Makefile', line 5)
+OBJCT = ${SRCS:.c=.o}
 # default
 .SHELLFLAGS := -c
 # automatic
@@ -30,6 +30,8 @@ WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
 CURDIR := /mnt/c/Users/Amine/OneDrive/Bureau/philo
 # makefile
 SHELL = /bin/sh
+# makefile (from 'Makefile', line 7)
+RM = rm -f
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
@@ -59,21 +61,22 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # environment
 PWD = /mnt/c/Users/Amine/OneDrive/Bureau/philo
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-2b803e71-3df7-4779-8dc4-587d236d9b2e.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-1a9015ce-2873-4fd8-98d4-18190538a60c.sock
 # environment
 WSL_INTEROP = /run/WSL/8_interop
 # environment
-WT_SESSION = c87a715e-c2bb-4180-b05a-b7256a9cc9a8
+WT_SESSION = 52404ee8-d98f-4121-8889-b6d5370b7f02
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/amine
 # environment
+ 
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 LOGNAME = amine
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -84,16 +87,20 @@ MAKELEVEL := 0
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
+# makefile (from 'Makefile', line 3)
+SRCS = src/*.c main.c
 # environment
 SHLVL = 1
+# makefile (from 'Makefile', line 9)
+CC = gcc -Wall -Wextra -Werror -pthread
 # default
 MAKE_VERSION := 4.1
 # environment
 USER = amine
 # makefile
-.DEFAULT_GOAL := 
-# environment
-NAME = Code
+.DEFAULT_GOAL := all
+# makefile (from 'Makefile', line 1)
+NAME = philo
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
@@ -141,7 +148,7 @@ TERM = xterm-256color
 # environment
 WSL_DISTRO_NAME = Ubuntu-18.04
 # variable set hash-table stats:
-# Load=64/1024=6%, Rehash=0, Collisions=3/88=3%
+# Load=68/1024=7%, Rehash=0, Collisions=3/97=3%
 
 # Pattern-specific Variable Values
 
@@ -149,9 +156,10 @@ WSL_DISTRO_NAME = Ubuntu-18.04
 
 # Directories
 
-# . (device 47, inode 10696049115098846): 10 files, no impossibilities.
+# . (device 47, inode 10696049115098846): 9 files, no impossibilities.
+# src (device 47, inode 45598946227148507): 5 files, no impossibilities.
 
-# 10 files, no impossibilities in 1 directories.
+# 14 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -160,18 +168,67 @@ WSL_DISTRO_NAME = Ubuntu-18.04
 # Files
 
 # Not a target:
-all:
-#  Command line target.
+src/things.c:
 #  Implicit rule search has been done.
+#  Last modified 2022-07-30 15:10:23.1960191
+#  File has been updated.
+#  Successfully updated.
+
+all: philo
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
 #  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+philo: src/philo.c src/philo_helper.c src/things.c main.c
+#  Implicit rule search has not been done.
+#  Last modified 2022-07-31 11:05:05.32356
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	$(CC) $(SRCS) -o $(NAME)
+
+.PHONY: all clean fclean re bonus
+#  Implicit rule search has not been done.
+#  Modification time never checked.
 #  File has not been updated.
+
+# Not a target:
+main.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-31 11:01:03.9051218
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-30 13:27:05.2533808
+#  Last modified 2022-07-31 11:05:03.6056103
 #  File has been updated.
 #  Successfully updated.
+
+# Not a target:
+src/philo_helper.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-30 15:10:10.1243248
+#  File has been updated.
+#  Successfully updated.
+
+bonus:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 20):
+	${RM} ${NAME}
 
 # Not a target:
 .DEFAULT:
@@ -179,20 +236,41 @@ Makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 17):
+	${RM} ${OBJCT}
+
+# Not a target:
+src/philo.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-31 11:04:19.2707846
+#  File has been updated.
+#  Successfully updated.
+
 # files hash-table stats:
-# Load=4/1024=0%, Rehash=0, Collisions=0/14=0%
+# Load=14/1024=1%, Rehash=0, Collisions=2/39=5%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 15 / storage = 129 B / avg = 8 B
-# current buf: size = 8162 B / used = 129 B / count = 15 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 25 / storage = 212 B / avg = 8 B
+# current buf: size = 8162 B / used = 212 B / count = 25 / avg = 8 B
 
-# strcache performance: lookups = 19 / hit rate = 21%
+# strcache performance: lookups = 49 / hit rate = 48%
 # hash-table stats:
-# Load=15/8192=0%, Rehash=0, Collisions=1/19=5%
-# Finished Make data base on Sat Jul 30 13:27:22 2022
+# Load=25/8192=0%, Rehash=0, Collisions=2/49=4%
+# Finished Make data base on Sun Jul 31 11:05:46 2022
 
  
