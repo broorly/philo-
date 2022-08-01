@@ -1,5 +1,6 @@
 #include"philo.h"
 
+
 int	main(int argc, char **argv)
 {
 	t_data	*data;
@@ -19,7 +20,5 @@ int	main(int argc, char **argv)
 	
 	philo_init(data, philo);
 	threads(philo);
-	while (wait(NULL)!= -1);
-	
-	
+	while (1);
 }
