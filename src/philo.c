@@ -2,6 +2,14 @@
 #include"../philo.h"
 
 
+long	ft_time(long start)
+{
+	struct timeval	current_time;
+
+	gettimeofday(&current_time, NULL);
+	return (current_time.tv_sec * 1000 + current_time.tv_usec / 1000 - start);
+}
+
 void	ft_usleep(long time)
 {
 	long	current_time;
@@ -10,14 +18,6 @@ void	ft_usleep(long time)
 	usleep(time / 1000);
 	while (ft_time(current_time) * 1000 < time)
 		usleep(100);
-}
-
-long	ft_time(long start)
-{
-	struct timeval	current_time;
-
-	gettimeofday(&current_time, NULL);
-	return (current_time.tv_sec * 1000 + current_time.tv_usec / 1000 - start);
 }
 
 int	v_init(t_data *data, int ac, char **argv)
@@ -59,18 +59,19 @@ void	threads(t_philo *philo)
 
 	i = 0;
 	philo->data->current_time = ft_time(0);
-	while (i < philo[0].data->number)
+	while (i < philo->data->number)
 	{
 		if (pthread_create(&philo[i].thread, NULL, &room, &philo[i]) != 0)
 			return;
-		i += 2;
+		i++;
+		usleep(50);
 	}
-	usleep(100);
-	i = 1;
-	while (i < philo[0].data->number)
-	{
-		if (pthread_create(&philo[i].thread, NULL, &room, &philo[i]) != 0)
-			return;
-		i += 2;
-	}
+	// usleep(100);
+	// i = 1;
+	// while (i < philo[0].data->number)
+	// {
+	// 	if (pthread_create(&philo[i].thread, NULL, &room, &philo[i]) != 0)
+	// 		return;
+	// 	i += 2;
+	// }
 }
