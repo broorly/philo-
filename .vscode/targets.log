@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul 31 11:05:46 2022
+# Make data base, printed on Mon Aug  1 13:56:19 2022
 
 # Variables
 
@@ -61,17 +61,16 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # environment
 PWD = /mnt/c/Users/Amine/OneDrive/Bureau/philo
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-1a9015ce-2873-4fd8-98d4-18190538a60c.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-ebe1329a-7b88-4cd1-9afd-541efae5f55c.sock
 # environment
-WSL_INTEROP = /run/WSL/8_interop
+WSL_INTEROP = /run/WSL/69_interop
 # environment
-WT_SESSION = 52404ee8-d98f-4121-8889-b6d5370b7f02
+WT_SESSION = 6a5b3bb3-9085-4350-86b6-98d68c4f23fd
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/amine
 # environment
- 
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 LOGNAME = amine
@@ -170,7 +169,7 @@ WSL_DISTRO_NAME = Ubuntu-18.04
 # Not a target:
 src/things.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-30 15:10:23.1960191
+#  Last modified 2022-07-31 11:11:44.7361047
 #  File has been updated.
 #  Successfully updated.
 
@@ -184,7 +183,7 @@ all: philo
 
 philo: src/philo.c src/philo_helper.c src/things.c main.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-31 11:05:05.32356
+#  Last modified 2022-07-31 12:25:14.8610896
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 14):
@@ -198,7 +197,7 @@ philo: src/philo.c src/philo_helper.c src/things.c main.c
 # Not a target:
 main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-31 11:01:03.9051218
+#  Last modified 2022-07-31 12:05:27.4526837
 #  File has been updated.
 #  Successfully updated.
 
@@ -212,7 +211,7 @@ Makefile:
 # Not a target:
 src/philo_helper.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-30 15:10:10.1243248
+#  Last modified 2022-07-31 11:09:19.229738
 #  File has been updated.
 #  Successfully updated.
 
@@ -253,7 +252,7 @@ clean:
 # Not a target:
 src/philo.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-31 11:04:19.2707846
+#  Last modified 2022-07-31 12:25:12.9419725
 #  File has been updated.
 #  Successfully updated.
 
@@ -271,6 +270,6 @@ src/philo.c:
 # strcache performance: lookups = 49 / hit rate = 48%
 # hash-table stats:
 # Load=25/8192=0%, Rehash=0, Collisions=2/49=4%
-# Finished Make data base on Sun Jul 31 11:05:46 2022
+# Finished Make data base on Mon Aug  1 13:56:19 2022
 
  
