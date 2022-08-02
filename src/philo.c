@@ -29,6 +29,7 @@ int	v_init(t_data *data, int ac, char **argv)
 	data->time_sleep = atoi(argv[4]);
 	data->is_dead = 0;
 	data->forks = init_mutex(data->forks , data->number);
+	data->display = init_mutex(data->display,1);
 	if (!data->forks)
 		return (0);
 	if (ac == 6)
@@ -64,14 +65,13 @@ void	threads(t_philo *philo)
 		if (pthread_create(&philo[i].thread, NULL, &room, &philo[i]) != 0)
 			return;
 		i++;
-		usleep(50);
 	}
-	// usleep(100);
-	// i = 1;
-	// while (i < philo[0].data->number)
-	// {
-	// 	if (pthread_create(&philo[i].thread, NULL, &room, &philo[i]) != 0)
-	// 		return;
-	// 	i += 2;
-	// }
+	usleep(100);
+	i = 1;
+	while (i < philo[0].data->number)
+	{
+		if (pthread_create(&philo[i].thread, NULL, &room, &philo[i]) != 0)
+			return;
+		i += 2;
+	}
 }

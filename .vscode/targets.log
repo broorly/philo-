@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Aug  1 13:56:19 2022
+# Make data base, printed on Tue Aug  2 11:14:19 2022
 
 # Variables
 
@@ -61,11 +61,11 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # environment
 PWD = /mnt/c/Users/Amine/OneDrive/Bureau/philo
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-ebe1329a-7b88-4cd1-9afd-541efae5f55c.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-01ed4431-c5aa-44ca-a39e-422a37a8e7f2.sock
 # environment
-WSL_INTEROP = /run/WSL/69_interop
+WSL_INTEROP = /run/WSL/8_interop
 # environment
-WT_SESSION = 6a5b3bb3-9085-4350-86b6-98d68c4f23fd
+WT_SESSION = dd771232-ea0f-49ef-9b48-c18f8bd3e4d7
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -155,10 +155,10 @@ WSL_DISTRO_NAME = Ubuntu-18.04
 
 # Directories
 
-# . (device 47, inode 10696049115098846): 9 files, no impossibilities.
+# . (device 47, inode 10696049115098846): 11 files, no impossibilities.
 # src (device 47, inode 45598946227148507): 5 files, no impossibilities.
 
-# 14 files, no impossibilities in 2 directories.
+# 16 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -169,7 +169,7 @@ WSL_DISTRO_NAME = Ubuntu-18.04
 # Not a target:
 src/things.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-31 11:11:44.7361047
+#  Last modified 2022-08-01 14:58:17.1574323
 #  File has been updated.
 #  Successfully updated.
 
@@ -183,7 +183,7 @@ all: philo
 
 philo: src/philo.c src/philo_helper.c src/things.c main.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-31 12:25:14.8610896
+#  Last modified 2022-08-01 16:35:53.5563871
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 14):
@@ -197,7 +197,7 @@ philo: src/philo.c src/philo_helper.c src/things.c main.c
 # Not a target:
 main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-31 12:05:27.4526837
+#  Last modified 2022-08-01 13:58:23.7935624
 #  File has been updated.
 #  Successfully updated.
 
@@ -252,7 +252,7 @@ clean:
 # Not a target:
 src/philo.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-31 12:25:12.9419725
+#  Last modified 2022-08-01 16:35:50.4312722
 #  File has been updated.
 #  Successfully updated.
 
@@ -264,12 +264,12 @@ src/philo.c:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 25 / storage = 212 B / avg = 8 B
-# current buf: size = 8162 B / used = 212 B / count = 25 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 27 / storage = 224 B / avg = 8 B
+# current buf: size = 8162 B / used = 224 B / count = 27 / avg = 8 B
 
-# strcache performance: lookups = 49 / hit rate = 48%
+# strcache performance: lookups = 51 / hit rate = 47%
 # hash-table stats:
-# Load=25/8192=0%, Rehash=0, Collisions=2/49=4%
-# Finished Make data base on Mon Aug  1 13:56:19 2022
+# Load=27/8192=0%, Rehash=0, Collisions=2/51=4%
+# Finished Make data base on Tue Aug  2 11:14:19 2022
 
  

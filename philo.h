@@ -19,6 +19,7 @@ typedef struct s_data
 	long				current_time;
 	int					h_much;
 	int					is_dead;
+	pthread_mutex_t		*display;
 }	t_data;
 
 typedef struct s_philo
@@ -41,5 +42,6 @@ void	eating(t_philo *philo);
 void	threads(t_philo *philo);
 pthread_mutex_t	*init_mutex(pthread_mutex_t *mutex, int size);
 void	*room(void *arg);
+void killer(t_philo *philo,t_data *data);
 
 #endif

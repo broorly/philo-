@@ -20,5 +20,6 @@ int	main(int argc, char **argv)
 	
 	philo_init(data, philo);
 	threads(philo);
+	killer(philo,data);
 	while (1);
 }
