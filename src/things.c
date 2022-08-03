@@ -6,6 +6,7 @@ void print(t_philo *philo,char *str)
 	printf("philo %d %s\n",philo->id,str);
 	pthread_mutex_unlock(philo->data->display);
 }
+
 void	eating(t_philo *philo)
 {
 	
