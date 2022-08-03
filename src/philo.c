@@ -1,6 +1,4 @@
-
 #include"../philo.h"
-
 
 long	ft_time(long start)
 {
