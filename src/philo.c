@@ -1,6 +1,4 @@
-
 #include"../philo.h"
-
 
 long	ft_time(long start)
 {
@@ -64,10 +62,10 @@ void	threads(t_philo *philo)
 	{
 		if (pthread_create(&philo[i].thread, NULL, &room, &philo[i]) != 0)
 			return;
-		i++;
+		i+=2;
 	}
-	usleep(100);
 	i = 1;
+	usleep(50);
 	while (i < philo[0].data->number)
 	{
 		if (pthread_create(&philo[i].thread, NULL, &room, &philo[i]) != 0)

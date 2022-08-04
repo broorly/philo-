@@ -42,6 +42,7 @@ void	eating(t_philo *philo);
 void	threads(t_philo *philo);
 pthread_mutex_t	*init_mutex(pthread_mutex_t *mutex, int size);
 void	*room(void *arg);
-void killer(t_philo *philo,t_data *data);
+int killer(t_philo *philo,t_data *data);
+void print(t_philo *philo,char *str,long time);
 
 #endif

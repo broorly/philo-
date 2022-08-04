@@ -6,7 +6,7 @@ OBJCT	=	${SRCS:.c=.o}
 
 RM		=	rm -f
 
-CC		=	gcc -Wall -Wextra -Werror -pthread
+CC		=	gcc -Wall -Wextra -Werror #-fsanitize=address
 
 all : $(NAME)
 

@@ -9,6 +9,7 @@ void	*room(void *arg)
 	{
 		eating(philo);
 		sleeping(philo);
+		print(philo,"is thinking",ft_time(philo->data->current_time));
 	}
 	return (NULL);
 }
@@ -29,18 +30,22 @@ pthread_mutex_t	*init_mutex(pthread_mutex_t *mutex, int size)
 	return (mutex);
 }
 
-void killer(t_philo *philo,t_data *data)
+int	killer(t_philo *philo,t_data *data)
 {
 	int i;
+	int x;
 	i = 0;
-	while (i < data->number)
-	{
-		if(philo[i].last_time_eating - ft_time(philo->last_time_eating) > data->time_die )
+	while(i < data->number)
+	{	x = ft_time(philo[i].data->current_time + philo[i].last_time_eating);
+		if(x >= data->time_die) 
 		{
-			printf("philo %d is dead\n",philo[i].id);
 			pthread_mutex_lock(philo->data->display);
-			printf("philo %d is dead\n",philo[i].id);
+			printf("%ld philo %d is dead\n",ft_time(philo[i].data->current_time),philo[i].id);
+			return (1);
+			// exit(1);
 		}
+		usleep(100);
 		i++;
 	}
+	return (0);
 }
