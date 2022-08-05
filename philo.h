@@ -32,6 +32,7 @@ typedef struct s_philo
 	pthread_t		thread;
 	t_data			*data;
 }	t_philo;
+
 void	*room(void *arg);
 long	ft_time(long start);
 int	v_init(t_data *data, int ac, char **argv);

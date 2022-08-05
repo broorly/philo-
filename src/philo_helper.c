@@ -36,15 +36,15 @@ int	killer(t_philo *philo,t_data *data)
 	int x;
 	i = 0;
 	while(i < data->number)
-	{	x = ft_time(philo[i].data->current_time + philo[i].last_time_eating);
-		if(x >= data->time_die) 
+	{
+		x = ft_time(philo[i].data->current_time + philo[i].last_time_eating);
+		if(x >= data->time_die ||  (philo[i].counter == data->h_much && data->h_much != 0))
 		{
+			printf("		z%d     s%d\n",philo[i].counter,data->h_much);
 			pthread_mutex_lock(philo->data->display);
 			printf("%ld philo %d is dead\n",ft_time(philo[i].data->current_time),philo[i].id);
 			return (1);
-			// exit(1);
 		}
-		usleep(100);
 		i++;
 	}
 	return (0);

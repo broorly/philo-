@@ -73,3 +73,4 @@ void	threads(t_philo *philo)
 		i += 2;
 	}
 }
+ 
