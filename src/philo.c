@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mrafik <mrafik@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/05 16:24:47 by mrafik            #+#    #+#             */
+/*   Updated: 2022/08/05 16:43:16 by mrafik           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"../philo.h"
 
 long	ft_time(long start)
@@ -20,20 +32,20 @@ void	ft_usleep(long time)
 
 int	v_init(t_data *data, int ac, char **argv)
 {
-
-	data->number = atoi(argv[1]);
-	data->time_die = atoi(argv[2]);
-	data->time_eat = atoi(argv[3]);
-	data->time_sleep = atoi(argv[4]);
+	data->number = ft_atoi(argv[1]);
+	data->time_die = ft_atoi(argv[2]);
+	data->time_eat = ft_atoi(argv[3]);
+	data->time_sleep = ft_atoi(argv[4]);
 	data->is_dead = 0;
-	data->forks = init_mutex(data->forks , data->number);
-	data->display = init_mutex(data->display,1);
+	data->forks = init_mutex(data->forks, data->number);
+	data->display = init_mutex(data->display, 1);
 	if (!data->forks)
 		return (0);
 	if (ac == 6)
-		data->h_much = atoi(argv[5]);
+		data->h_much = ft_atoi(argv[5]);
 	return (1);
 }
+
 void	philo_init(t_data *data, t_philo *philo)
 {
 	int	i;
@@ -52,6 +64,7 @@ void	philo_init(t_data *data, t_philo *philo)
 		i++;
 	}
 }
+
 void	threads(t_philo *philo)
 {
 	int	i;
@@ -61,16 +74,15 @@ void	threads(t_philo *philo)
 	while (i < philo->data->number)
 	{
 		if (pthread_create(&philo[i].thread, NULL, &room, &philo[i]) != 0)
-			return;
-		i+=2;
+			return ;
+		i += 2;
 	}
 	i = 1;
-	usleep(50);
+	usleep(100);
 	while (i < philo[0].data->number)
 	{
 		if (pthread_create(&philo[i].thread, NULL, &room, &philo[i]) != 0)
-			return;
+			return ;
 		i += 2;
 	}
 }
- 
