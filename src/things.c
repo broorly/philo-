@@ -6,7 +6,7 @@
 /*   By: mrafik <mrafik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:15:31 by mrafik            #+#    #+#             */
-/*   Updated: 2022/08/05 16:48:37 by mrafik           ###   ########.fr       */
+/*   Updated: 2022/08/06 12:30:12 by mrafik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	print(t_philo *philo, char *str, long time)
 void	eating(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->data->forks[philo->left]);
-	print(philo, "taken the fork", ft_time(philo->data->current_time));
+	print(philo, " \033[0m taken the fork", ft_time(philo->data->current_time));
 	pthread_mutex_lock(&philo->data->forks[philo->right]);
-	print(philo, "taken the fork", ft_time(philo->data->current_time));
-	print(philo, "is eating", ft_time(philo->data->current_time));
+	print(philo, "\033[0m taken the fork", ft_time(philo->data->current_time));
+	print(philo, "\033[0;31m is eating", ft_time(philo->data->current_time));
 	philo->counter++;
 	philo->last_time_eating = ft_time(philo->data->current_time);
 	ft_usleep(philo->data->time_eat * 1000);
@@ -35,6 +35,6 @@ void	eating(t_philo *philo)
 
 void	sleeping(t_philo *philo)
 {
-	print(philo, "is sleeping", ft_time(philo->data->current_time));
+	print(philo, "\033[0m is sleeping", ft_time(philo->data->current_time));
 	ft_usleep(philo->data->time_sleep * 1000);
 }
