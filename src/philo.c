@@ -6,7 +6,7 @@
 /*   By: mrafik <mrafik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:24:47 by mrafik            #+#    #+#             */
-/*   Updated: 2022/08/07 22:28:50 by mrafik           ###   ########.fr       */
+/*   Updated: 2022/08/07 22:33:55 by mrafik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	v_init(t_data *data, int ac, char **argv)
 	if (ac == 6)
 	{
 		data->h_much = ft_atoi(argv[5]);
-		if(!data->h_much)
+		if (!data->h_much)
 			return (0);
 	}
 	return (1);
