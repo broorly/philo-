@@ -6,7 +6,7 @@
 /*   By: mrafik <mrafik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:15:41 by mrafik            #+#    #+#             */
-/*   Updated: 2022/08/07 15:39:37 by mrafik           ###   ########.fr       */
+/*   Updated: 2022/08/07 22:20:09 by mrafik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,13 @@ int	ft_norm(t_data *data, t_philo *philo, int z)
 		return (0);
 }
 
+void	print_is_dead(t_philo *philo, int i)
+{
+	pthread_mutex_lock(philo->data->display);
+	printf("%ld philo %d is dead\n",
+		ft_time(philo[i].data->current_time), philo[i].id);
+}
+
 int	killer(t_philo *philo, t_data *data)
 {
 	int	i;
@@ -63,12 +70,11 @@ int	killer(t_philo *philo, t_data *data)
 	z = 0;
 	while (i < data->number)
 	{
+		pthread_mutex_lock(philo->data->race);
 		x = ft_time(philo[i].data->current_time + philo[i].last_time_eating);
 		if (x >= data->time_die)
 		{
-			pthread_mutex_lock(philo->data->display);
-			printf("%ld philo %d is dead\n",
-				ft_time(philo[i].data->current_time), philo[i].id);
+			print_is_dead(philo, i);
 			return (1);
 		}
 		else if ((philo[i].counter >= data->h_much && data->h_much != 0))
@@ -77,6 +83,7 @@ int	killer(t_philo *philo, t_data *data)
 			if (ft_norm(data, philo, z))
 				return (1);
 		}
+		pthread_mutex_unlock(philo->data->race);
 		i++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: mrafik <mrafik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:15:28 by mrafik            #+#    #+#             */
-/*   Updated: 2022/08/05 16:44:25 by mrafik           ###   ########.fr       */
+/*   Updated: 2022/08/07 21:04:32 by mrafik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_data
 	int					h_much;
 	int					is_dead;
 	pthread_mutex_t		*display;
+	pthread_mutex_t		*race;
 }	t_data;
 
 typedef struct s_philo

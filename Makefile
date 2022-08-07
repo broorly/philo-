@@ -6,7 +6,7 @@ OBJCT	=	${SRCS:.c=.o}
 
 RM		=	rm -f
 
-CC		=	gcc -Wall -Wextra -Werror #-fsanitize=address
+CC		=	gcc -Wall -Wextra -Werror #-fsanitize=thread
 
 all : $(NAME)
 
@@ -21,4 +21,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY:		all clean fclean re bonus
+.PHONY:		all clean fclean re 

@@ -6,7 +6,7 @@
 /*   By: mrafik <mrafik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:24:47 by mrafik            #+#    #+#             */
-/*   Updated: 2022/08/05 16:43:16 by mrafik           ###   ########.fr       */
+/*   Updated: 2022/08/07 21:04:19 by mrafik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	v_init(t_data *data, int ac, char **argv)
 	data->is_dead = 0;
 	data->forks = init_mutex(data->forks, data->number);
 	data->display = init_mutex(data->display, 1);
+	data->race = init_mutex(data->race, 1);
 	if (!data->forks)
 		return (0);
 	if (ac == 6)

@@ -6,7 +6,7 @@
 /*   By: mrafik <mrafik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:15:19 by mrafik            #+#    #+#             */
-/*   Updated: 2022/08/07 15:32:04 by mrafik           ###   ########.fr       */
+/*   Updated: 2022/08/07 19:30:51 by mrafik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,13 @@ int	check_arg(char **str)
 	int	x;
 
 	i = 1;
+	if (str[1][0] == '0')
+		return (0);
 	while (str[i])
 	{
 		x = 0;
+		if (str[i][x] == '+')
+			x++;
 		while (str[i][x])
 		{
 			if (!ft_isdigit(str[i][x]))
