@@ -6,7 +6,7 @@
 /*   By: mrafik <mrafik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:15:41 by mrafik            #+#    #+#             */
-/*   Updated: 2022/08/07 14:00:34 by mrafik           ###   ########.fr       */
+/*   Updated: 2022/08/07 15:39:37 by mrafik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,25 @@ pthread_mutex_t	*init_mutex(pthread_mutex_t *mutex, int size)
 	return (mutex);
 }
 
+int	ft_norm(t_data *data, t_philo *philo, int z)
+{
+	if (z == data->number)
+	{
+		pthread_mutex_lock(philo->data->display);
+		return (1);
+	}
+	else
+		return (0);
+}
+
 int	killer(t_philo *philo, t_data *data)
 {
 	int	i;
 	int	x;
-	int z;
+	int	z;
 
 	i = 0;
-	z = 1;
+	z = 0;
 	while (i < data->number)
 	{
 		x = ft_time(philo[i].data->current_time + philo[i].last_time_eating);
@@ -60,14 +71,11 @@ int	killer(t_philo *philo, t_data *data)
 				ft_time(philo[i].data->current_time), philo[i].id);
 			return (1);
 		}
-		else if((philo[i].counter >= data->h_much && data->h_much != 0))
+		else if ((philo[i].counter >= data->h_much && data->h_much != 0))
 		{
 			z++;
-			if(z == data->number)
-			{
-				pthread_mutex_lock(philo->data->display);
+			if (ft_norm(data, philo, z))
 				return (1);
-			}
 		}
 		i++;
 	}
