@@ -6,7 +6,7 @@
 /*   By: mrafik <mrafik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:15:41 by mrafik            #+#    #+#             */
-/*   Updated: 2022/08/07 22:20:09 by mrafik           ###   ########.fr       */
+/*   Updated: 2022/08/07 22:26:35 by mrafik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	killer(t_philo *philo, t_data *data)
 			print_is_dead(philo, i);
 			return (1);
 		}
-		else if ((philo[i].counter >= data->h_much && data->h_much != 0))
+		else if ((philo[i].counter >= data->h_much && data->h_much > 0))
 		{
 			z++;
 			if (ft_norm(data, philo, z))
